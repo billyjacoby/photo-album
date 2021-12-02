@@ -11,6 +11,11 @@ async function getAlbums(baseUrl) {
   return albumArray;
 }
 
+async function getPhotoArray(baseUrl, albumId = "") {
+  let response = await axios.get(baseUrl + "photos");
+  return response.data;
+}
+
 async function main() {
   let albums = getAlbums(BASE_URL);
   console.log(albums);
@@ -21,4 +26,5 @@ main();
 module.exports = {
   BASE_URL,
   getAlbums,
+  getPhotoArray,
 };
