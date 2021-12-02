@@ -18,4 +18,7 @@ async function main() {
 
 main();
 
-module.exports = {};
+module.exports = {
+  BASE_URL,
+  getAlbums,
+};
