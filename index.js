@@ -20,15 +20,23 @@ async function getPhotoArray(baseUrl, albumId = "") {
   return response.data;
 }
 
-async function main() {
-  let albums = await getAlbums(BASE_URL);
+function printInfoForAlbum(photos) {
+  for (let photo of photos) {
+    console.log(`[${photo.id}] ${[photo.title]}`);
+  }
+}
+
+async function printAllInfoByAlbum(albums) {
   for (let albumId in albums) {
     console.log("photo-album", albumId);
     let photos = await getPhotoArray(BASE_URL, albumId);
-    for (let photo of photos) {
-      console.log(`[${photo.id}] ${[photo.title]}`);
-    }
+    printInfoForAlbum(photos);
   }
+}
+
+async function main() {
+  let albums = await getAlbums(BASE_URL);
+  printAllInfoByAlbum(albums);
 }
 
 main();
