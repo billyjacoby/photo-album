@@ -24,5 +24,15 @@ describe("Photos", function () {
       assert(typeof photo.title === "string");
       assert(typeof photo.id === "number");
     });
+
+    it("should return photo objects only with the specified id", async function () {
+      let photoArray = await getPhotoArray(BASE_URL, "1");
+      let photoAlbums = photoArray.reduce((acc, item) => {
+        if (!acc.includes(item.albumId)) acc.push(item.albumId);
+        return acc;
+      }, []);
+      assert(photoAlbums.length === 1);
+      assert(photoAlbums[0].toString() === "1");
+    });
   });
 });

@@ -12,13 +12,16 @@ async function getAlbums(baseUrl) {
 }
 
 async function getPhotoArray(baseUrl, albumId = "") {
-  let response = await axios.get(baseUrl + "photos");
+  let url = baseUrl + "photos";
+  if (albumId) {
+    url += "?albumId=" + albumId;
+  }
+  let response = await axios.get(url);
   return response.data;
 }
 
 async function main() {
   let albums = getAlbums(BASE_URL);
-  console.log(albums);
 }
 
 main();
