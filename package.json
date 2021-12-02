@@ -4,7 +4,7 @@
   },
   "scripts": {
     "test": "./node_modules/nodemon/bin/nodemon.js --exec './node_modules/mocha/bin/mocha test.js'",
-    "start": "node index.js"
+    "start": "node main.js"
   },
   "devDependencies": {
     "mocha": "^9.1.3",

@@ -34,15 +34,9 @@ async function printAllInfoByAlbum(albums) {
   }
 }
 
-async function main() {
-  let albums = await getAlbums(BASE_URL);
-  printAllInfoByAlbum(albums);
-}
-
-main();
-
 module.exports = {
   BASE_URL,
   getAlbums,
   getPhotoArray,
+  printAllInfoByAlbum,
 };
